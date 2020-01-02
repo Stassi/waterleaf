@@ -1,0 +1,52 @@
+{
+  "name": "waterleaf",
+  "version": "0.0.2",
+  "description": "",
+  "license": "MIT",
+  "repository": "github:Stassi/waterleaf",
+  "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
+  "files": [
+    "/lib"
+  ],
+  "main": "./lib/waterleaf.umd.js",
+  "module": "./lib/waterleaf.esm.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "standard",
+    "prepublishOnly": "npm run build",
+    "test": "npm run lint && mocha"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "rollup": "^1.27.14",
+    "standard": "^14.3.1"
+  },
+  "engines": {
+    "node": "^8 || ^10 || ^12 || ^13",
+    "npm": "^6"
+  },
+  "os": [
+    "linux",
+    "osx"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "node 8",
+    "node 10",
+    "node 12",
+    "node 13"
+  ],
+  "mocha": {
+    "require": "@babel/register"
+  }
+}
