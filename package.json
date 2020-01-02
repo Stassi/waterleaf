@@ -7,7 +7,8 @@
   "repository": "github:Stassi/waterleaf",
   "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard",
+    "test": "npm run lint && echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
