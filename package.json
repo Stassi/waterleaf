@@ -39,6 +39,13 @@
       "@babel/preset-env"
     ]
   },
+  "browserslist": [
+    "defaults",
+    "node 8",
+    "node 10",
+    "node 12",
+    "node 13"
+  ],
   "mocha": {
     "require": "@babel/register"
   }
