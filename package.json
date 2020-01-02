@@ -4,10 +4,17 @@
   "description": "",
   "license": "MIT",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
+  "files": [
+    "/lib"
+  ],
+  "main": "./lib/waterleaf.umd.js",
+  "module": "./lib/waterleaf.esm.js",
   "repository": "github:Stassi/waterleaf",
   "sideEffects": false,
   "scripts": {
+    "build": "rollup -c",
     "lint": "standard",
+    "prepublishOnly": "npm run build",
     "test": "npm run lint && mocha"
   },
   "devDependencies": {
