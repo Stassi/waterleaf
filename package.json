@@ -8,7 +8,7 @@
   "sideEffects": false,
   "scripts": {
     "lint": "standard",
-    "test": "npm run lint && echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && mocha"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -21,5 +21,13 @@
   "engines": {
     "node": "13.5.0",
     "npm": "6.13.4"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "mocha": {
+    "require": "@babel/register"
   }
 }
