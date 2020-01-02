@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "",
   "license": "MIT",
+  "repository": "github:Stassi/waterleaf",
   "author": "Andreas Stassivik <andreas@stassi.net> (https://github.com/Stassi)",
   "files": [
     "/lib"
   ],
   "main": "./lib/waterleaf.umd.js",
   "module": "./lib/waterleaf.esm.js",
-  "repository": "github:Stassi/waterleaf",
   "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
