@@ -9,20 +9,17 @@ describe('#machine', () => {
       s0: {
         instruction: () => 'β',
         move: () => 1,
-        nextState: 's1'
-        // nextState: () => 's1'
+        nextState: () => 's1'
       },
       s1: {
         instruction: () => 'α',
         move: () => 1,
-        nextState: 's2'
-        // nextState: () => 's2'
+        nextState: () => 's2'
       },
       s2: {
         instruction: () => 'β',
         move: () => 1,
-        nextState: 's3'
-        // nextState: () => 's3'
+        nextState: () => 's3'
       },
       s3: {
         instruction: () => 'α',

@@ -13,10 +13,15 @@ const machine = ({
   symbolDefault = 0,
   tape: tapeInput = [symbolDefault]
 }) => {
-  const prependCells = minimumZero(
+  const createCells = length => createArray({
+    length,
+    value: symbolDefault
+  })
+
+  const prependCellsCount = minimumZero(
     negate(positionInput)
   )
-  const appendCells = sum(
+  const appendCellsCount = sum(
     1,
     positionInput,
     negate(
@@ -24,32 +29,35 @@ const machine = ({
     )
   )
 
+  const extendedTape = [
+    ...createCells(prependCellsCount),
+    ...tapeInput,
+    ...createCells(appendCellsCount)
+  ]
+
   const index = minimumZero(positionInput)
-  const symbol = tapeInput[index]
+  const symbol = extendedTape[index]
 
   const {
     instruction,
     move,
-    nextState: state
+    nextState
   } = states[stateInput]
+
+  const state = conditional({
+    ifFalse: () => undefined,
+    ifTrue: () => nextState(symbol),
+    predicate: () => nextState
+  })
 
   const position = sum(
     positionInput,
-    prependCells,
+    prependCellsCount,
     move(symbol)
   )
 
-  const createCells = length => createArray({
-    length,
-    value: symbolDefault
-  })
-
   const tape = spliceOne({
-    data: [
-      ...createCells(prependCells),
-      ...tapeInput,
-      ...createCells(appendCells)
-    ],
+    data: extendedTape,
     item: instruction(symbol),
     start: index
   })
