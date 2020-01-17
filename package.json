@@ -32,7 +32,8 @@
   },
   "os": [
     "linux",
-    "osx"
+    "osx",
+    "win32"
   ],
   "cpu": [
     "x64"
