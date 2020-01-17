@@ -58,7 +58,11 @@ const machine = ({
 
   const tape = spliceOne({
     data: extendedTape,
-    item: instruction(symbol),
+    item: conditional({
+      ifFalse: () => symbol,
+      ifTrue: () => instruction(symbol),
+      predicate: () => instruction
+    }),
     start: index
   })
 

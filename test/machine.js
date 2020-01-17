@@ -12,7 +12,6 @@ describe('#machine', () => {
         nextState: () => 's1'
       },
       s1: {
-        instruction: () => 'α',
         move: () => 1,
         nextState: () => 's2'
       },
@@ -22,7 +21,6 @@ describe('#machine', () => {
         nextState: () => 's3'
       },
       s3: {
-        instruction: () => 'α',
         move: () => 0
       }
     },
