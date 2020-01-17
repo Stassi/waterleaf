@@ -53,7 +53,11 @@ const machine = ({
   const position = sum(
     positionInput,
     prependCellsCount,
-    move(symbol)
+    conditional({
+      ifFalse: () => 0,
+      ifTrue: () => move(symbol),
+      predicate: () => move
+    })
   )
 
   const tape = spliceOne({

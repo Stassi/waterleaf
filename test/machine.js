@@ -20,9 +20,7 @@ describe('#machine', () => {
         move: () => 1,
         nextState: () => 's3'
       },
-      s3: {
-        move: () => 0
-      }
+      s3: {}
     },
     symbolDefault: 'α',
     tape: ['α']
