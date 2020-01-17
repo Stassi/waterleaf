@@ -47,12 +47,6 @@ const machine = ({
     nextState
   } = states[stateInput]
 
-  const state = conditional({
-    ifFalse: () => false,
-    ifTrue: () => nextState(symbol),
-    predicate: () => nextState
-  })
-
   const position = sum(
     positionInput,
     prependCellsCount,
@@ -62,6 +56,12 @@ const machine = ({
       predicate: () => move
     })
   )
+
+  const state = conditional({
+    ifFalse: () => false,
+    ifTrue: () => nextState(symbol),
+    predicate: () => nextState
+  })
 
   const tape = spliceOne({
     data: extendedTape,
