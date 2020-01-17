@@ -34,6 +34,9 @@
     "linux",
     "osx"
   ],
+  "cpu": [
+    "x64"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env"
