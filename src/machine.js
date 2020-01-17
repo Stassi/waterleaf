@@ -48,7 +48,7 @@ const machine = ({
   } = states[stateInput]
 
   const state = conditional({
-    ifFalse: () => undefined,
+    ifFalse: () => false,
     ifTrue: () => nextState(symbol),
     predicate: () => nextState
   })

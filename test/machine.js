@@ -37,7 +37,7 @@ describe('#machine', () => {
 
       expect(res4).to.deep.include({
         position: 3,
-        state: undefined,
+        state: false,
         tape: ['β', 'α', 'β', 'α']
       })
     })
@@ -54,7 +54,7 @@ describe('#machine', () => {
 
       expect(res4).to.deep.include({
         position: 3,
-        state: undefined,
+        state: false,
         tape: ['β', 'α', 'β', 'α']
       })
     })
@@ -71,7 +71,7 @@ describe('#machine', () => {
 
       expect(res4).to.deep.include({
         position: 5,
-        state: undefined,
+        state: false,
         tape: ['α', 'α', 'β', 'α', 'β', 'α']
       })
     })
