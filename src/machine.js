@@ -1,6 +1,7 @@
 import cardinality from './utilities/cardinality'
 import conditional from './utilities/conditional'
 import createArray from './utilities/createArray'
+import identity from './utilities/identity'
 import minimumZero from './utilities/minimumZero'
 import negate from './utilities/negate'
 import spliceOne from './utilities/spliceOne'
@@ -8,6 +9,7 @@ import sum from './utilities/sum'
 
 const machine = ({
   states,
+  instructionDefault = identity,
   position: positionInput = 0,
   state: stateInput,
   symbolDefault = 0,
@@ -63,7 +65,7 @@ const machine = ({
   const tape = spliceOne({
     data: extendedTape,
     item: conditional({
-      ifFalse: () => symbol,
+      ifFalse: () => instructionDefault(symbol),
       ifTrue: () => instruction(symbol),
       predicate: () => instruction
     }),
@@ -79,6 +81,7 @@ const machine = ({
         throw new Error('Halting due to empty state queue.')
       },
       ifTrue: () => machine({
+        instructionDefault,
         position,
         state,
         states,
