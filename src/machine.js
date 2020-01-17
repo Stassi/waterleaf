@@ -10,6 +10,7 @@ import sum from './utilities/sum'
 const machine = ({
   states,
   instructionDefault = identity,
+  moveDefault = () => 0,
   position: positionInput = 0,
   state: stateInput,
   symbolDefault = 0,
@@ -56,7 +57,7 @@ const machine = ({
     positionInput,
     prependCellsCount,
     conditional({
-      ifFalse: () => 0,
+      ifFalse: () => moveDefault(symbol),
       ifTrue: () => move(symbol),
       predicate: () => move
     })
@@ -82,6 +83,7 @@ const machine = ({
       },
       ifTrue: () => machine({
         instructionDefault,
+        moveDefault,
         position,
         state,
         states,
