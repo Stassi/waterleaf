@@ -22,8 +22,7 @@ describe('#machine', () => {
       },
       s3: {}
     },
-    symbolDefault: 'α',
-    tape: ['α']
+    symbolDefault: 'α'
   }
 
   describe('position: -2', () => {
