@@ -1,3 +1,9 @@
-import truth from './truth'
+import machine from './machine'
+import print from './algorithms/print'
+import printReverse from './algorithms/printReverse'
 
-export { truth }
+export {
+  machine,
+  print,
+  printReverse
+}
