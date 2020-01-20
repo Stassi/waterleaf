@@ -1,9 +1,9 @@
 import not from './utilities/not'
 import until from './utilities/until'
-import machine from './machine'
+import initialStep from './step'
 
 const solve = x => until({
-  initialValue: machine(x),
+  initialValue: initialStep(x),
   predicate: ({ state }) => not(state),
   transform: ({ step }) => step()
 }).tape

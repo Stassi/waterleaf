@@ -1,6 +1,6 @@
 import conditional from '../utilities/conditional'
 import negate from '../utilities/negate'
-import linearStates from './linearStates'
+import linearStates from '../linearStates'
 
 const print = ({
   reverse,

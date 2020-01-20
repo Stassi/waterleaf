@@ -1,9 +1,9 @@
-import cardinality from '../utilities/cardinality'
-import conditional from '../utilities/conditional'
-import lessThan from '../utilities/lessThan'
-import reduce from '../utilities/reduce'
-import sum from '../utilities/sum'
-import toArray from '../utilities/toArray'
+import cardinality from './utilities/cardinality'
+import conditional from './utilities/conditional'
+import lessThan from './utilities/lessThan'
+import reduce from './utilities/reduce'
+import sum from './utilities/sum'
+import toArray from './utilities/toArray'
 
 const linearStates = ({ string, state = 0 }) => {
   const symbols = toArray(string)

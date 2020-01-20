@@ -1,9 +1,11 @@
 import machine from './machine'
-import solve from './solve'
+import print from './algorithms/print'
+import printReverse from './algorithms/printReverse'
 import truth from './truth'
 
 export {
   machine,
-  solve,
+  print,
+  printReverse,
   truth
 }
