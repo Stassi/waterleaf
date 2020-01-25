@@ -1,54 +1,50 @@
 import cardinality from './utilities/cardinality'
-import conditional from './utilities/conditional'
-import lessThan from './utilities/lessThan'
-import reduce from './utilities/reduce'
+import map from './utilities/map'
+import negate from './utilities/negate'
+import range from './utilities/range'
 import sum from './utilities/sum'
+import tail from './utilities/tail'
 import toArray from './utilities/toArray'
+import toObject from './utilities/toObject'
+import withoutTail from './utilities/withoutTail'
 
 const linearStates = ({ string, state = 0 }) => {
   const symbols = toArray(string)
 
-  const { states } = reduce({
-    data: symbols,
-    initialValue: {
-      count: state,
-      states: {}
-    },
-    reducer: (
+  const pairs = map({
+    data: range({
+      maximum: sum(
+        state,
+        cardinality(symbols)
+      ),
+      minimum: state
+    }),
+    transform: index => [
+      index,
       {
-        states,
-        count: prevCount
-      },
-      symbol
-    ) => {
-      const count = sum(prevCount, 1)
-
-      return {
-        count,
-        states: {
-          ...states,
-          [prevCount]: {
-            instruction: () => symbol,
-            ...conditional({
-              ifFalse: () => null,
-              ifTrue: () => ({
-                nextState: () => count
-              }),
-              predicate: () => lessThan({
-                highest: sum(
-                  state,
-                  cardinality(symbols)
-                ),
-                value: count
-              })
-            })
-          }
-        }
+        instruction: () => symbols[
+          sum(
+            index,
+            negate(state)
+          )
+        ],
+        nextState: () => sum(index, 1)
       }
-    }
+    ]
   })
 
-  return states
+  const [
+    index,
+    { instruction }
+  ] = tail(pairs)
+
+  return toObject([
+    ...withoutTail(pairs),
+    [
+      index,
+      { instruction }
+    ]
+  ])
 }
 
 export default linearStates
