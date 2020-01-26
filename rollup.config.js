@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 
 const rollupConfig = [
@@ -13,11 +14,12 @@ const rollupConfig = [
     name: 'waterleaf',
     sourcemap: true
   }
-].map((output) => ({
+].map(output => ({
   output,
   input: 'src/index.js',
   plugins: [
     resolve(),
+    commonjs(),
     babel({
       exclude: 'node_modules/**'
     })
