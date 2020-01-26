@@ -13,7 +13,7 @@ const rollupConfig = [
     name: 'waterleaf',
     sourcemap: true
   }
-].map((output) => ({
+].map(output => ({
   output,
   input: 'src/index.js',
   plugins: [
