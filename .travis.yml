@@ -17,3 +17,4 @@ deploy:
   edge: true
   on:
     node_js: 13
+    os: linux
