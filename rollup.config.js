@@ -1,3 +1,5 @@
+import babel from 'rollup-plugin-babel'
+
 const rollupConfig = [
   {
     file: 'lib/waterleaf.esm.js',
@@ -12,7 +14,12 @@ const rollupConfig = [
   }
 ].map((output) => ({
   output,
-  input: 'src/index.js'
+  input: 'src/index.js',
+  plugins: [
+    babel({
+      exclude: 'node_modules/**'
+    })
+  ]
 }))
 
 export default rollupConfig
