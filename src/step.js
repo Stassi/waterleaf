@@ -1,3 +1,4 @@
+import addOne from './utilities/addOne'
 import cardinality from './utilities/cardinality'
 import conditional from './utilities/conditional'
 import createArray from './utilities/createArray'
@@ -24,11 +25,12 @@ const step = ({
   const prependCellsCount = minimumZero(
     negate(positionInput)
   )
-  const appendCellsCount = sum(
-    1,
-    positionInput,
-    negate(
-      cardinality(tapeInput)
+  const appendCellsCount = addOne(
+    sum(
+      positionInput,
+      negate(
+        cardinality(tapeInput)
+      )
     )
   )
 

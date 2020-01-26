@@ -1,6 +1,6 @@
-import negate from './negate'
+import addOne from './addOne'
 import strictlyEquals from './strictlyEquals'
-import sum from './sum'
+import subtractOne from './subtractOne'
 import tail from './tail'
 import until from './until'
 
@@ -9,20 +9,16 @@ const range = ({
   minimum = 0
 }) => until({
   initialValue: [minimum],
+  predicate: x => strictlyEquals(
+    subtractOne(maximum),
+    tail(x)
+  ),
   transform: x => [
     ...x,
-    sum(
-      tail(x),
-      1
+    addOne(
+      tail(x)
     )
-  ],
-  predicate: x => strictlyEquals(
-    tail(x),
-    sum(
-      maximum,
-      negate(1)
-    )
-  )
+  ]
 })
 
 export default range
