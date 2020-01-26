@@ -1,3 +1,4 @@
+import addOne from './utilities/addOne'
 import cardinality from './utilities/cardinality'
 import map from './utilities/map'
 import negate from './utilities/negate'
@@ -28,7 +29,7 @@ const linearStates = ({ string, state = 0 }) => {
             negate(state)
           )
         ],
-        nextState: () => sum(index, 1)
+        nextState: () => addOne(index)
       }
     ]
   })
