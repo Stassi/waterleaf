@@ -1,11 +1,11 @@
 import not from './utilities/not'
 import until from './utilities/until'
-import initialStep from './step'
+import step from './step'
 
 const solve = x => until({
-  initialValue: initialStep(x),
+  initialValue: step(x),
   predicate: ({ state }) => not(state),
-  transform: ({ step }) => step()
+  transform: ({ step: nextStep }) => nextStep()
 }).tape
 
 export default solve
