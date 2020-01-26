@@ -1,3 +1,5 @@
+import conditional from './conditional'
+
 const spliceOne = ({
   data,
   item,
@@ -9,10 +11,15 @@ const spliceOne = ({
     1,
     item
   )
-  return withRemoved ? {
-    data,
-    removed
-  } : data
+
+  return conditional({
+    ifFalse: () => data,
+    ifTrue: () => ({
+      data,
+      removed
+    }),
+    predicate: () => withRemoved
+  })
 }
 
 export default spliceOne
