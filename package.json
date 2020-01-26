@@ -1,6 +1,6 @@
 {
   "name": "waterleaf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "license": "MIT",
   "repository": "github:Stassi/waterleaf",
@@ -22,8 +22,10 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.8.3",
     "chai": "^4.2.0",
+    "core-js": "^3.6.4",
     "mocha": "^7.0.0",
-    "rollup": "^1.29.0",
+    "rollup": "^1.29.1",
+    "rollup-plugin-babel": "^4.3.3",
     "standard": "^14.3.1"
   },
   "engines": {
@@ -40,7 +42,13 @@
   ],
   "babel": {
     "presets": [
-      "@babel/preset-env"
+      [
+        "@babel/preset-env",
+        {
+          "corejs": "3",
+          "useBuiltIns": "usage"
+        }
+      ]
     ]
   },
   "browserslist": [
