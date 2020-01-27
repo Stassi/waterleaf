@@ -9,7 +9,6 @@ import {
   sum
 } from 'neida'
 
-// TODO: Import from neida
 const minimumZero = value => minimum({ value, lowest: 0 })
 
 // TODO: Import from neida
