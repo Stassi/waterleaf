@@ -1,13 +1,15 @@
-import addOne from './utilities/addOne'
-import cardinality from './utilities/cardinality'
-import map from './utilities/map'
-import negate from './utilities/negate'
-import range from './utilities/range'
-import sum from './utilities/sum'
-import tail from './utilities/tail'
-import toArray from './utilities/toArray'
-import toObject from './utilities/toObject'
-import withoutTail from './utilities/withoutTail'
+import {
+  addOne,
+  cardinality,
+  map,
+  negate,
+  range,
+  sum,
+  tail,
+  toArray,
+  toObject,
+  withoutTail
+} from 'neida'
 
 const linearStates = ({ string, state = 0 }) => {
   const symbols = toArray(string)

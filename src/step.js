@@ -1,12 +1,16 @@
-import addOne from './utilities/addOne'
-import cardinality from './utilities/cardinality'
-import conditional from './utilities/conditional'
-import createArray from './utilities/createArray'
-import identity from './utilities/identity'
-import minimumZero from './utilities/minimumZero'
-import negate from './utilities/negate'
-import spliceOne from './utilities/spliceOne'
-import sum from './utilities/sum'
+import {
+  addOne,
+  cardinality,
+  conditional,
+  createArray,
+  identity,
+  minimum,
+  negate,
+  spliceOne,
+  sum
+} from 'neida'
+
+const minimumZero = value => minimum({ value, lowest: 0 })
 
 const step = ({
   states,
@@ -66,13 +70,13 @@ const step = ({
   })
 
   const tape = spliceOne({
+    index,
     data: extendedTape,
     item: conditional({
       ifFalse: () => instructionDefault(symbol),
       ifTrue: () => instruction(symbol),
       predicate: () => instruction
-    }),
-    start: index
+    })
   })
 
   return {
