@@ -1,4 +1,4 @@
-import toString from './utilities/toString'
+import { toString } from 'neida'
 import solve from './solve'
 import step from './step'
 

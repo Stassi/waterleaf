@@ -1,5 +1,4 @@
-import not from './utilities/not'
-import until from './utilities/until'
+import { not, until } from 'neida'
 import step from './step'
 
 const solve = x => until({

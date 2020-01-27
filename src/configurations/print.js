@@ -1,5 +1,4 @@
-import conditional from '../utilities/conditional'
-import negate from '../utilities/negate'
+import { conditional, negate } from 'neida'
 import linearStates from '../linearStates'
 
 const print = ({
