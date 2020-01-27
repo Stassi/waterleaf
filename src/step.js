@@ -6,33 +6,11 @@ import {
   identity,
   minimum,
   negate,
+  spliceOne,
   sum
 } from 'neida'
 
 const minimumZero = value => minimum({ value, lowest: 0 })
-
-// TODO: Import from neida
-const spliceOne = ({
-  data,
-  item,
-  start,
-  withRemoved
-}) => {
-  const removed = data.splice(
-    start,
-    1,
-    item
-  )
-
-  return conditional({
-    ifFalse: () => data,
-    ifTrue: () => ({
-      data,
-      removed
-    }),
-    predicate: () => withRemoved
-  })
-}
 
 const step = ({
   states,
@@ -92,13 +70,13 @@ const step = ({
   })
 
   const tape = spliceOne({
+    index,
     data: extendedTape,
     item: conditional({
       ifFalse: () => instructionDefault(symbol),
       ifTrue: () => instruction(symbol),
       predicate: () => instruction
-    }),
-    start: index
+    })
   })
 
   return {
