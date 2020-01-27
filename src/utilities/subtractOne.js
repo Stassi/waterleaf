@@ -1,7 +1,7 @@
+import add from './add'
 import negate from './negate'
-import sum from './sum'
 
-const subtractOne = x => sum(
+const subtractOne = x => add(
   x,
   negate(1)
 )

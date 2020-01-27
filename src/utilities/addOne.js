@@ -1,5 +1,5 @@
-import sum from './sum'
+import add from './add'
 
-const addOne = x => sum(x, 1)
+const addOne = x => add(x, 1)
 
 export default addOne
